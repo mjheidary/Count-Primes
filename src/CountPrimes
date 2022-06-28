@@ -1,0 +1,25 @@
+package com.mapsahr;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the number : ");
+        int primes=input.nextInt();
+        System.out.println(countPrimes(primes));
+    }
+    static int countPrimes(int num){
+        if (num < 2) return 0;
+        int count = 0;
+        boolean[] table = new boolean[num];
+        for (int i = 2; i < num; i++) {
+            for (int j = 2; j < i; j++) {
+                if ((i % j == 0)) table[i] = true;
+            }
+            if (!table[i]) count++;
+        }
+        return count;
+    }
+}
